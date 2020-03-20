@@ -10,9 +10,9 @@ int ySoil = grid*2;
 int xLifeInterval = 70; 
 
 //random variable
-int ranA = floor (random (6)) ;
-int ranB = floor (random (6)) ;
-int ranC = floor (random (8)) ;
+float ranA = floor(random (2, 6));
+float ranB = floor(random (2, 6));
+float ranC = floor(random (2, 8));
 
 int xSoldier = 0;
 
@@ -48,24 +48,15 @@ void setup() {
 }
 
 void draw() {
-if(ranA < 2) {    //set for SoldierLevel
-   ranA = ranA+2;
-}
-if(ranB < 2) {    //set for Robot Y
-   ranB = ranB+2;
-}
-if(ranC < 2) {    //set for Robot X
-   ranC = ranC+2;
-}
 
-//random variable
-int ySoldierLevel = grid * ranA;
-int yRobotLevel = grid * ranB;
-int xRobot = grid * ranC;
+//random place
+float ySoldierLevel = grid * ranA;
+float yRobotLevel = grid * ranB;
+float xRobot = grid * ranC;
 
 //laser variable
-int xLaser = xRobot + robotLaserPosX;
-int yLaser = yRobotLevel + robotLaserPosY;
+float xLaser = xRobot + robotLaserPosX;
+float yLaser = yRobotLevel + robotLaserPosY;
 
   image(soilImg, 0, ySoil); 
   image(groundhogImg, 640/2-40, grid); //place groundhog at the center groung
@@ -84,8 +75,8 @@ int yLaser = yRobotLevel + robotLaserPosY;
     }
   
   xLaserPosition = xLaserPosition + 2;  //set the laser speeds
-  int xEnd = xLaser - xLaserPosition;   //set the laser end point
-  int xHead = xLaser - 20 - xLaserPosition;   //set the laser start point
+  float xEnd = xLaser - xLaserPosition;   //set the laser end point
+  float xHead = xLaser - 20 - xLaserPosition;   //set the laser start point
   
   stroke(255,0,0);
   strokeWeight(10);
